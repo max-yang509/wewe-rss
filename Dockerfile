@@ -1,7 +1,7 @@
 FROM node:20.16.0-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
-
+ARG RAILWAY_SERVICE_ID=6dab31be-8dc8-4df7-8625-b9e2094e65fb
 RUN npm i -g pnpm
 
 FROM base AS build
