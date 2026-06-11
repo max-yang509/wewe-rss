@@ -2,8 +2,7 @@
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
     "builder": "RAILPACK",
-    "buildCommand": "pnpm install --frozen-lockfile && pnpm run -r build"
-  },
+    },
   "deploy": {
     "startCommand": "pnpm --filter server start:prod"
   }
