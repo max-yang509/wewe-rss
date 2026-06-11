@@ -1,14 +1,14 @@
 FROM node:20.16.0-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
-ARG RAILWAY_SERVICE_ID=6dab31be-8dc8-4df7-8625-b9e2094e65fb
+
 RUN npm i -g pnpm
 
 FROM base AS build
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 
-RUN --mount=type=cache,id=s/$(RAILWAY_SERVICE_ID)/pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN --mount=type=cache,id=s/e13ea3a6-c45b-453d-b001-f0eb53a8626a/pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 RUN pnpm run -r build
 
