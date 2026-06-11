@@ -8,7 +8,7 @@ FROM base AS build
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 
-RUN --mount=type=cache,target=/pnpm/store \
+RUN --mount=type=cache,id=cache-pnpm-store,target=/pnpm/store \
     pnpm install --frozen-lockfile
 
 RUN pnpm run -r build
