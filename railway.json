@@ -2,9 +2,10 @@
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
     "builder": "RAILPACK",
-    "buildCommand": "pnpm install"
+    "dockerfilePath": "Dockerfile.original",
+    "buildCommand": "pnpm install --frozen-lockfile && pnpm run -r build"
   },
   "deploy": {
-    "startCommand": "pnpm start"
+    "startCommand": "pnpm --filter server start:prod"
   }
 }
