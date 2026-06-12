@@ -8,9 +8,19 @@
     <meta name="description" content="更好的公众号订阅方式" />
     <style>
       body {
-        background-color: #fffbeb; /* 柔和淡黄色 */
+        /* 你指定的 135° 蓝红渐变 */
+        background: linear-gradient(135deg, #003366, #990000);
         margin: 0;
         padding: 0;
+        /* 防止渐变重复、铺满全屏 */
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        /* 页面默认文字改为白色，深色背景下看得清 */
+        color: #ffffff;
+      }
+      /* 可选：让内部白色卡片半透明，融合渐变背景 */
+      #root {
+        min-height: 100vh;
       }
     </style>
   </head>
