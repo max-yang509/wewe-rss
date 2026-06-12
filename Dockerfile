@@ -12,10 +12,7 @@ RUN --mount=type=cache,id=s/2c5c5f7c-4215-4e29-87c4-a8db30f1cebc/pnpm,target=/pn
 
 RUN pnpm run -r build
 
-RUN pnpm deploy --filter=server --prod /app
 RUN pnpm deploy --filter=server --prod /app-sqlite
-
-RUN cd /app && pnpm exec prisma generate
 
 RUN cd /app-sqlite && \
     rm -rf ./prisma && \
@@ -37,6 +34,5 @@ ENV AUTH_CODE=""
 ENV DATABASE_URL="file:../data/wewe-rss.db"
 ENV DATABASE_TYPE="sqlite"
 
-RUN chmod +x ./docker-bootstrap.sh
-
+RUN mkdir -p /app/data && chmod +x ./docker-bootstrap.sh
 CMD ["./docker-bootstrap.sh"]
